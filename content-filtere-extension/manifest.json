@@ -1,0 +1,22 @@
+{
+    "name": "Resilience",
+    "version": "1.0",
+    "description": "Helps users quit porn",
+    "manifest_version": 3,
+    "permissions": ["webRequest", "webRequestBlocking", "storage"],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ],
+    "action": {
+      "default_title": "Resilience, Quit Porn Today"
+    }
+  }
+  
