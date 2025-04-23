@@ -9,8 +9,6 @@ const blockedSites = [
 
   const currentUrl = window.location.hostname;
 
-  let blocked_sites = [fetch(chrome.runtime.getURL("blocked_sites.json"))]
-    .then(response => response.json())
   if (blockedSites.some(site => currentUrl.includes(site))) {
     //Block site or filter or redirect
     document.documentElement.innerHTML = ` 
