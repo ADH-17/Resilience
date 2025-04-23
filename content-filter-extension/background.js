@@ -11,28 +11,25 @@ chrome.runtime.onInstalled.addListener(() => {
             // Output for debugging
             console.log(data);
             blocked_sites = data;  // Store the blocked sites data
+
+            // Add blocking rules based on the fetched data
+            const rules = blocked_sites.map((site, index) => ({
+                id: index + 1,
+                priority: 1,
+                action: { type: "block" },
+                condition: {
+                    urlFilter: site.url,
+                    resourceTypes: ["main_frame", "sub_frame"]
+                }
+            }));
+
+            // Update rules dynamically using Declarative Net Request API
+            chrome.declarativeNetRequest.updateDynamicRules({
+                addRules: rules,
+                removeRules: []  // Optionally, remove any old rules if necessary
+            });
         })
         .catch(error => {
             console.error("Error fetching blocked_sites.json:", error);
         });
-});
-
-// You can also add dynamic rule updates here if needed
-chrome.runtime.onInstalled.addListener(() => {
-    // Add declarativeNetRequest rules based on blocked_sites data
-    const rules = blocked_sites.map((site, index) => ({
-        id: index + 1,
-        priority: 1,
-        action: { type: "block" },
-        condition: {
-            urlFilter: site.url,
-            resourceTypes: ["main_frame", "sub_frame"]
-        }
-    }));
-
-    // Update rules dynamically using Declarative Net Request API
-    chrome.declarativeNetRequest.updateDynamicRules({
-        addRules: rules,
-        removeRules: []  // Optionally, remove any old rules if necessary
-    });
 });
