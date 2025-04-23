@@ -15,13 +15,13 @@ const blockedSites = [
       <div>
         <h1>Stay Strong 💪</h1>
         <p>This site is blocked by <strong>Resilience</strong>.</p>
-        <p>You're in control. Redirecting you to something better...</p>
+        <p>You're in control. Remember why you're fighting.</p>
+
+        <h2>Resources to keep you on track:</h2>
+        <a href= "https://nofap.com/">Visit nofap.com</a>
       </div>
     </div>
     `;
 
-    setTimeout(() => {
-        window.location.href = "https://www.nofap.com/";
-
-    }, 4000);
+    
   }
