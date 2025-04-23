@@ -10,7 +10,6 @@ const blockedSites = [
   const currentUrl = window.location.hostname;
 
   if (blockedSites.some(site => currentUrl.includes(site))) {
-    //Block site or filter or redirect
     document.documentElement.innerHTML = ` 
     <div style="display: flex; height: 100vh; align-items: center; justify-content: center; text-align: center; background-color: #111; color: white; font-family: sans-serif;">
       <div>
