@@ -18,7 +18,7 @@
     "action": {
       "default_title": "Resilience, Quit Porn Today"
     },
-    "declaritive_net_request": {
+    "declaritiveNetRequest": {
       "rule_resources": [
         {
           "id": "block_porn",
