@@ -3,6 +3,7 @@
   "version": "1.0",
   "description": "Helps users quit porn",
   "manifest_version": 3,
+  "incognito": "spanning",
 
   "permissions": [
     "storage",
