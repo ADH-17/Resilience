@@ -30,6 +30,6 @@ chrome.runtime.onInstalled.addListener(() => {
             });
         })
         .catch(error => {
-            console.error("Error fetching blocked_sites.json:", error);
+            //console.error("Error fetching blocked_sites.json:", error);
         });
 });
