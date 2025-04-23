@@ -6,7 +6,6 @@
     blockedSites = await resp.json();
     console.log('Blocked list:', blockedSites);
   } catch (err) {
-    console.error('Failed to load blocked_sites.json:', err);
     // Optionally exit early if you can’t load the list
     return;
   }
