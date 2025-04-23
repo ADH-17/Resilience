@@ -3,7 +3,8 @@ const blockedSites = [
     "xvideos.com",
     "xhamster.com",
     "redtube.com",
-    "xnxx.com"
+    "xnxx.com",
+    "brazzers.com"
   ];
 
   const currentUrl = window.location.hostname;
