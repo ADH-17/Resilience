@@ -1,0 +1,25 @@
+[
+    {
+      "id": 1,
+      "priority": 1,
+      "action": {
+        "type": "block"
+      },
+      "condition": {
+        "urlFilter": "porn",
+        "resourceTypes": ["main_frame", "sub_frame"]
+      }
+    },
+    {
+      "id": 2,
+      "priority": 2,
+      "action": {
+        "type": "block"
+      },
+      "condition": {
+        "urlFilter": "adult",
+        "resourceTypes": ["main_frame", "sub_frame"]
+      }
+    }
+  ]
+  
