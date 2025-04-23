@@ -3,7 +3,7 @@
     "version": "1.0",
     "description": "Helps users quit porn",
     "manifest_version": 3,
-    "permissions": ["webRequest", "webRequestBlocking", "storage"], 
+    "permissions": ["storage"], 
     "host_permissions": ["<all_urls>"],
     "background": {
       "service_worker": "background.js"
@@ -17,6 +17,15 @@
     ],
     "action": {
       "default_title": "Resilience, Quit Porn Today"
+    },
+    "declaritive_net_request": {
+      "rule_resources": [
+        {
+          "id": "block_porn",
+          "enabled": true,
+          "url": "rules.json"
+        }
+      ]
     }
   }
   
