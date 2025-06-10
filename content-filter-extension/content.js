@@ -26,3 +26,32 @@ const blockedSites = [
 
     
   }
+
+// Skip scanning on blocked sites, filter out non-blocked sites
+if (!blockedSites.some(site => currentUrl.includes(site))) {
+  const classifyImages = async () => {
+    const images = document.querySelectorAll('img');
+    for (const img of images) {
+      try {
+        const response = await fetch(img.src);
+        const blob = await response.blob();
+        const formData = new FormData();
+        formData.append('file', blob, 'image.jpg');
+
+        const result = await fetch('http://localhost:5000/classify', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await result.json();
+
+        if (data.nsfw) {
+          img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200"><rect width="300" height="200" fill="black"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="20">Image Blocked</text></svg>';
+        }
+      } catch (err) {
+        console.error('Error classifying image:', err);
+      }
+    }
+  };
+
+  window.addEventListener('load', classifyImages);
+}
